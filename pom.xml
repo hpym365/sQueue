@@ -9,6 +9,7 @@
 	<modules>
 		<module>queueRequestReceive</module>
         <module>queueRequestHandle</module>
+        <module>queueDataAccess</module>
     </modules>
 	<packaging>pom</packaging>
 

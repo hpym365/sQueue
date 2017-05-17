@@ -19,15 +19,15 @@ public class RabbitMQConfig {
     public static final String ROUTING_KEY = "recive_key";
 
 
-    @Bean
-    public ConnectionFactory connectionFactory() {
-        CachingConnectionFactory connectionFactory = new CachingConnectionFactory("127.0.0.1", 5672);
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
-        connectionFactory.setVirtualHost("/");
-        connectionFactory.setPublisherConfirms(true);
-        return connectionFactory;
-    }
+//    @Bean
+//    public ConnectionFactory connectionFactory() {
+//        CachingConnectionFactory connectionFactory = new CachingConnectionFactory("127.0.0.1", 5672);
+//        connectionFactory.setUsername("guest");
+//        connectionFactory.setPassword("guest");
+//        connectionFactory.setVirtualHost("/");
+//        connectionFactory.setPublisherConfirms(true);
+//        return connectionFactory;
+//    }
 
     /**
      * 配置消息交换机

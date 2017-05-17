@@ -1,5 +1,10 @@
 package com.senyint.queue;
 
+import com.senyint.queue.consumer.Receive;
+import org.springframework.amqp.core.AcknowledgeMode;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,5 +16,7 @@ public class RequestConsummerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RequestConsummerApplication.class, args);
+
     }
+
 }

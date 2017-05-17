@@ -1,2 +1,13 @@
 server:
-  port: 8889
+  port: 0
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      acknowledge-mode: manual
+    virtual-host: /
+    publisher-confirms: true
+    connection-timeout: 2
