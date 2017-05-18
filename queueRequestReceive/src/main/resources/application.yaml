@@ -11,3 +11,7 @@ spring:
     virtual-host: /
     publisher-confirms: true
     connection-timeout: 2
+queue:
+  mq:
+    binds:
+      - exchange: receive_exchange

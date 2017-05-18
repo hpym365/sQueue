@@ -11,3 +11,17 @@ spring:
     virtual-host: /
     publisher-confirms: true
     connection-timeout: 2
+queue:
+  mq:
+    binds:
+      - exchange: receive_exchange
+        type: topic
+        queue: receive_queue
+        routingkey: receive_key
+    consumer:
+      - queue: receive_queue
+        listener: receive
+#      - exchange: ga
+#        type: direct
+#        queue: queue2
+#        routingkey: key1

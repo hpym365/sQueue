@@ -1,6 +1,5 @@
 package com.senyint.queue.ctrl;
 
-import com.senyint.queue.config.RabbitMQConfig;
 import com.senyint.queue.rabbitmq.utils.RabbitMQDAO;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
@@ -32,7 +31,7 @@ public class HttpReciveController implements RabbitTemplate.ConfirmCallback{
 
             String json ="{\"name\":zhangsan,\"age\":20}";
 
-            dao.sendMessage(RabbitMQConfig.EXCHANGE,RabbitMQConfig.ROUTING_KEY,json,correlationId);
+            dao.sendMessage("receive_exchange","receive_key",json,correlationId);
 //            rabbitTemplate.setConfirmCallback(this);//设置回调
 //            //消息发送到exchange
 //            rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE,RabbitMQConfig.ROUTING_KEY,json,correlationId);
