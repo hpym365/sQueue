@@ -1,0 +1,24 @@
+server:
+  port: 1818
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      acknowledge-mode: manual
+    virtual-host: /
+    publisher-confirms: true
+    connection-timeout: 2
+#  data:
+#    mongodb:
+#      database: test
+
+#queue:
+#  mq:
+#    binds:
+#      - exchange: receive_exchange
+#        type: topic
+#        queue: receive_queue
+#        routingkey: receive_key

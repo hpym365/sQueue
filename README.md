@@ -147,3 +147,20 @@ redis优势 性能 O(∩_∩)O
 
 排队叫号终端支持? 有的厂商要求使用webservice给他推送
 sQueue
+
+
+患者状态变更可使用状态模式
+
+创建 患者state interface hanlde 方法
+
+实现 预约状态  do...
+准备检查  挂起 ... implements 患者状态
+这里操作mongo  redis 等..
+
+
+context 
+患者 state
+
+context.changeState(new 预约状态...)
+
+slf4j
