@@ -5,11 +5,12 @@
 
 	<groupId>com.senyint.queue</groupId>
 	<artifactId>queue</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.1</version>
 	<modules>
 		<module>queueRequestReceive</module>
         <module>queueRequestHandle</module>
-        <module>queueDataAccess</module>
+        <module>queueAutoconfig</module>
+        <module>queueDataHandle</module>
     </modules>
 	<packaging>pom</packaging>
 

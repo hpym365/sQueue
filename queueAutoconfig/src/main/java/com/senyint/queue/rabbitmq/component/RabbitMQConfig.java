@@ -154,6 +154,7 @@ public class RabbitMQConfig {
                 s.setQueueNames(queue);
                 s.setConnectionFactory(connectionFactory);
                 s.setMessageListener(messageListener);
+                s.setConcurrentConsumers(10);
 
                 registerSingletonBean(queue+listener.toString(),s);
             }

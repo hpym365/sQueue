@@ -15,7 +15,7 @@ queue:
   mq:
     binds:
       - exchange: receive_exchange
-        type: topic
+        #type: derecet
         queue: receive_queue
         routingkey: receive_key
     consumer:

@@ -27,6 +27,7 @@ public class Receive implements ChannelAwareMessageListener {
         byte[] body = message.getBody();
         String bodystr = new String(body, "UTF-8");
 
+        Thread.sleep(5000);
         System.out.println("receiveMsg接受到的消息为:" + bodystr);
         // 消息消费确认ack
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), true);

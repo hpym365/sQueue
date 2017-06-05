@@ -164,3 +164,16 @@ context
 context.changeState(new 预约状态...)
 
 slf4j
+
+
+配置走不同的redis或者mysql
+
+读这个配置  queue.save=1
+1-redis 2-mysql
+
+根据1获取
+写一个 IQueue  接口  比如有保存队列 查询队列
+Redis 实现该借口  mysql也实现
+
+两个类不加@component  通过读取配置手工加载 就可以实现autowired根据配置来了
+ 
