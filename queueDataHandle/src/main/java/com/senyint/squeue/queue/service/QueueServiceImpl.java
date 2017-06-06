@@ -21,34 +21,18 @@ public class QueueServiceImpl implements QueueService {
     QueueDao dao;
 
     @Override
-    public List findQueueByToken(Map param) {
-        return dao.selectQueueByToken(param);
-    }
-
-    @Override
     public void updateQueue(Map param) {
 
     }
 
     @Override
     public void insertQueue(Map param) {
-        List list = dao.selectQueue(param);
-        System.out.println(list);
-        if(list.size()==0){
-            dao.insertQueue(param);
-        }else{
-            System.out.println("插入失败重复了");
-        }
+        dao.insertQueue(param);
     }
 
     @Override
     public List findQueue(Map param) {
-       return dao.selectQueue(param);
-    }
-
-    @Override
-    public Map findQueueByQueueNum(Map param) {
-        return dao.selectQueueByQueueNum(param);
+        return dao.selectQueue(param);
     }
 
 

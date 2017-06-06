@@ -10,12 +10,7 @@ import java.util.Map;
  */
 public interface QueueDao {
 
-    public List selectQueueByToken(Map param);
-
-    public void insertQueue(Map param);
-
     public List selectQueue(Map param);
 
-    public Map selectQueueByQueueNum(Map param);
-
+    public void insertQueue(Map param);
 }

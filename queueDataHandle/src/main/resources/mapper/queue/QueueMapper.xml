@@ -15,21 +15,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.senyint.squeue.queue.dao.QueueDao">
-    <select id="selectQueueByToken" resultType="Map">
+    <select id="selectQueue" resultType="Map">
         SELECT q.* FROM tb_queue q,tb_token t,tb_token_binding b
         where q.queue_num=b.queue_num and t.token_key = b.token_key
         <if test="token != null">AND t.token_key=#{token}</if>
         <if test="queueNum != null">AND q.queue_num=#{queueNum}</if>
-    </select>
-
-    <select id="selectQueueByQueueNum" resultType="Map">
-        SELECT * FROM tb_queue q
-        where q.queue_num=#{queueNum}
-    </select>
-
-    <select id="selectQueue" resultType="Map">
-        SELECT * FROM tb_queue
-        where queue_num=#{queueNum}
     </select>
 
     <insert id="insertQueue">

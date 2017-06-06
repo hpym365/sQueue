@@ -29,36 +29,19 @@ public class MainController {
 
     /**
      * @param param the param
-     * @return the list
+     * @return the Result
      * @Version 1.0
      * @Date 20170606 10:53:19
      * @Author hpym365 @gmail.com
-     * @Description Find  queue by token list.根据token查找队列
+     * @Description Find  queue by token list.根据token","queueNum查找队列
      */
-    @RequestMapping("/findQueueByToken")
-    public Result findQueueByToken(@RequestBody(required = false) Map param) throws Exception {
+    @RequestMapping("/findQueue")
+    public Result findQueue(@RequestBody(required = false) Map param) throws Exception {
         RestUtils.checkParamNotNull(param,"token","queueNum");
-//        if (param == null && (param.get("token") == null || param.get("queueNum") == null)) {
-//            System.out.println("token is null");
-//            throw new IllegalArgumentException("token不能为空");
-//        }
-        List queueByToken = queueService.findQueueByToken(param);
+        List queueByToken = queueService.findQueue(param);
         Result result = Result.succResult();
         result.setData(queueByToken);
         return result;
     }
-
-
-    @RequestMapping("/findQueueByQueueNum")
-    public Result findQueueByQueueNum(@RequestBody(required = false) Map param) throws Exception {
-        if (param == null || param.get("queueNum") == null) {
-            throw new IllegalArgumentException("queueNum不能为空");
-        }
-        Map queue = queueService.findQueueByQueueNum(param);
-        Result result = Result.succResult();
-        result.setData(queue);
-        return result;
-    }
-
 
 }

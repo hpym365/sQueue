@@ -55,9 +55,9 @@ public class Result implements Serializable {
     }
 
     public void setData(Object data) {
-        if(data==null || (data instanceof List && ((List) data).size()==0)){
-            this.resCode=ResultCode.RESULT_CODE_NODATA;
-            this.resMsg=ResultCode.RESULT_MSG_NODATA;
+        if (this.resCode == ResultCode.RESULT_CODE_SUCC && (data == null || (data instanceof List && ((List) data).size() == 0))) {
+            this.resCode = ResultCode.RESULT_CODE_NODATA;
+            this.resMsg = ResultCode.RESULT_MSG_NODATA;
         }
         ResultUtils.queryCollectionChangeKeyUnderToCamel(data);
         this.data = data;

@@ -40,17 +40,6 @@ public class TestServ {
     @Autowired
     QueueService queueService;
 
-
-    @Test
-    public void selectqueue() {
-        Map map = new HashMap();
-        map.put("token", "abcd");
-
-        List queueByToken = queueService.findQueueByToken(map);
-        System.out.println(queueByToken);
-    }
-
-
     @Test
     public void insertQueue() {
         Map map = new HashMap();
@@ -69,21 +58,17 @@ public class TestServ {
 
     @Test
     public void findQueueByToken() throws IOException {
-        String token = "abc1d";
+        String token = "abcd";
         Map param = new HashMap();
         param.put("token",token);
-        //        map.put("queueNum", "fs-cs-fubu-A");
-//        map.put("patientName", "王小二");
-//        map.put("queueDate", LocalDate.now());
-//        map.put("optionType", 1);//1-增  2-删 3-改 4-查
+        param.put("queueNum",1);
 
-
-        String res = rest.postForObject("http://localhost:9090/data/findQueueByToken", param, String.class);
-        System.out.println(res);
+        String res = rest.postForObject("http://localhost:9090/data/findQueue", param, String.class);
+        System.out.println("String res:"+res);
 
 //        Map<String, Object> map = new HashMap<String, Object>();
         Result result = ResultUtils.getResult(res);
-        System.out.println(result.toString());
+        System.out.println("ResultUtils.getResult(res):"+result.toString());
 //        rest.getForObject("http://localhost:8888/receive/" + token,Map.class);
     }
 

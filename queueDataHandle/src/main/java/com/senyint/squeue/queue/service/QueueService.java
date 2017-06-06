@@ -10,13 +10,10 @@ import java.util.Map;
  */
 public interface QueueService {
 
-    public List findQueueByToken(Map param);
+    public List findQueue(Map param);
 
     public void updateQueue(Map param);
 
     public void insertQueue(Map param);
 
-    public List findQueue(Map param);
-
-    public Map findQueueByQueueNum(Map param);
 }
