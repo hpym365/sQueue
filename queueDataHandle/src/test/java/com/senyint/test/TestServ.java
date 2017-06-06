@@ -69,7 +69,7 @@ public class TestServ {
 
     @Test
     public void findQueueByToken() throws IOException {
-        String token = "abcd";
+        String token = "abc1d";
         Map param = new HashMap();
         param.put("token",token);
         //        map.put("queueNum", "fs-cs-fubu-A");
@@ -90,10 +90,10 @@ public class TestServ {
 
     @Test
     public void findQueueByQueueNum() throws IOException {
-        String queueNum = "2";
+        String queueNum = "1";
         Map param = new HashMap();
         param.put("queueNum",queueNum);
-        String res = rest.postForObject("http://localhost:9090/data/findQueueByQueueNum", param, String.class);
+        String res = rest.postForObject("http://localhost:9090/data/findQueueByToken", param, String.class);
         System.out.println(res);
         Result result = ResultUtils.getResult(res);
         System.out.println(result.toString());

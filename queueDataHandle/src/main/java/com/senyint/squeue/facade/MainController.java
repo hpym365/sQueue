@@ -2,6 +2,7 @@ package com.senyint.squeue.facade;
 
 import com.senyint.squeue.queue.service.QueueService;
 import com.senyint.squeue.result.Result;
+import com.senyint.squeue.util.RestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +37,11 @@ public class MainController {
      */
     @RequestMapping("/findQueueByToken")
     public Result findQueueByToken(@RequestBody(required = false) Map param) throws Exception {
-        if (param == null || param.get("token") == null) {
-            System.out.println("token is null");
-            throw new IllegalArgumentException("token不能为空");
-        }
+        RestUtils.checkParamNotNull(param,"token","queueNum");
+//        if (param == null && (param.get("token") == null || param.get("queueNum") == null)) {
+//            System.out.println("token is null");
+//            throw new IllegalArgumentException("token不能为空");
+//        }
         List queueByToken = queueService.findQueueByToken(param);
         Result result = Result.succResult();
         result.setData(queueByToken);

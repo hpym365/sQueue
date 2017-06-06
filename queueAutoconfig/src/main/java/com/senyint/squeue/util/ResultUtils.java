@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,33 +41,33 @@ public class ResultUtils {
     }
 
 
-    public static void keyUnderToCamel(Object object) {
-
+    public static void queryCollectionChangeKeyUnderToCamel(Object object) {
         if (object instanceof Map) {
             mapKeyUnderToCamel((Map) object);
         }
-
         if (object instanceof List) {
             List list = (List) object;
             for (Object o : list) {
-                mapKeyUnderToCamel((Map) o);
+                if (o instanceof Map) {
+                    mapKeyUnderToCamel((Map) o);
+                }
             }
         }
-
     }
 
     private static void mapKeyUnderToCamel(Map map) {
+
         Map resultMap = new HashMap();
         for (Object key : map.keySet()) {
             Object val = map.get(key);
             if (key instanceof String) {
                 String resKey = StringUtils.camelCaseName((String) key);
                 resultMap.put(resKey, val);
-            }else{
-                resultMap.put(key,val);
+            } else {
+                resultMap.put(key, val);
             }
 
         }
-        map=resultMap;
+        map = resultMap;
     }
 }
