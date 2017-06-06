@@ -40,10 +40,21 @@ public class MainController {
             System.out.println("token is null");
             throw new IllegalArgumentException("token不能为空");
         }
-//            return "token为空";
         List queueByToken = queueService.findQueueByToken(param);
         Result result = Result.succResult();
         result.setData(queueByToken);
+        return result;
+    }
+
+
+    @RequestMapping("/findQueueByQueueNum")
+    public Result findQueueByQueueNum(@RequestBody(required = false) Map param) throws Exception {
+        if (param == null || param.get("queueNum") == null) {
+            throw new IllegalArgumentException("queueNum不能为空");
+        }
+        Map queue = queueService.findQueueByQueueNum(param);
+        Result result = Result.succResult();
+        result.setData(queue);
         return result;
     }
 

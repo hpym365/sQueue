@@ -17,4 +17,6 @@ public interface QueueService {
     public void insertQueue(Map param);
 
     public List findQueue(Map param);
+
+    public Map findQueueByQueueNum(Map param);
 }

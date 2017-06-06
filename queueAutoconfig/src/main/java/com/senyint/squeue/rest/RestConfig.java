@@ -17,7 +17,14 @@ public class RestConfig {
     @Autowired
     private RestTemplateBuilder builder;
 
-    // 使用RestTemplateBuilder来实例化RestTemplate对象，spring默认已经注入了RestTemplateBuilder实例
+    /**
+     * @return the rest template
+     * @Version 1.0
+     * @Date 20170606 15:12:40
+     * @Author hpym365 @gmail.com
+     * @Description Rest  template rest template.
+     * 使用RestTemplateBuilder来实例化RestTemplate对象 spring默认已经注入了RestTemplateBuilder实例
+     */
     @Bean
     public RestTemplate restTemplate() {
         return builder.build();

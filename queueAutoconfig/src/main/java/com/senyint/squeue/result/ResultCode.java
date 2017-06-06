@@ -8,6 +8,14 @@ package com.senyint.squeue.result;
 public interface ResultCode {
 
     public static String RESULT_CODE_SUCC ="00";//成功
-    public static String RESULT_CODE_FAIL ="01";//失败
+    public static String RESULT_MSG_SUCC ="成功";//成功
+
+
+    public static String RESULT_CODE_FAIL ="01";//系统失败
+    public static String RESULT_MSG_FAIL ="系统异常失败";//系统失败
+
+    public static String RESULT_CODE_NODATA ="02";//无返回数据
+    public static String RESULT_MSG_NODATA ="未查询到数据";//无返回数据
+
 
 }

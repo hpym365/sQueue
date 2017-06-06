@@ -20,6 +20,11 @@
         where q.queue_num=b.queue_num and t.token_key = b.token_key and t.token_key=#{token}
     </select>
 
+    <select id="selectQueueByQueueNum" resultType="Map">
+        SELECT * FROM tb_queue q
+        where q.queue_num=#{queueNum}
+    </select>
+
     <select id="selectQueue" resultType="Map">
         SELECT * FROM tb_queue
         where queue_num=#{queueNum}

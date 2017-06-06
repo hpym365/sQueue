@@ -16,4 +16,6 @@ public interface QueueDao {
 
     public List selectQueue(Map param);
 
+    public Map selectQueueByQueueNum(Map param);
+
 }

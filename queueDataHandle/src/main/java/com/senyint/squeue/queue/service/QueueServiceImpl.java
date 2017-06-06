@@ -46,5 +46,10 @@ public class QueueServiceImpl implements QueueService {
        return dao.selectQueue(param);
     }
 
+    @Override
+    public Map findQueueByQueueNum(Map param) {
+        return dao.selectQueueByQueueNum(param);
+    }
+
 
 }

@@ -1,14 +1,9 @@
 package com.senyint.test;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.senyint.squeue.DataHandleApplication;
-import com.senyint.squeue.demo.service.TestService;
-import com.senyint.squeue.queue.dao.QueueDao;
 import com.senyint.squeue.queue.service.QueueService;
 import com.senyint.squeue.result.Result;
-import com.senyint.squeue.utils.ResultUtil;
-import org.apache.ibatis.session.SqlSession;
+import com.senyint.squeue.util.ResultUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,10 +82,20 @@ public class TestServ {
         System.out.println(res);
 
 //        Map<String, Object> map = new HashMap<String, Object>();
-        Result result = ResultUtil.getResult(res);
+        Result result = ResultUtils.getResult(res);
         System.out.println(result.toString());
 //        rest.getForObject("http://localhost:8888/receive/" + token,Map.class);
     }
 
 
+    @Test
+    public void findQueueByQueueNum() throws IOException {
+        String queueNum = "2";
+        Map param = new HashMap();
+        param.put("queueNum",queueNum);
+        String res = rest.postForObject("http://localhost:9090/data/findQueueByQueueNum", param, String.class);
+        System.out.println(res);
+        Result result = ResultUtils.getResult(res);
+        System.out.println(result.toString());
+    }
 }

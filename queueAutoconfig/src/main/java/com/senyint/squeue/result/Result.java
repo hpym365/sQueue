@@ -1,6 +1,9 @@
 package com.senyint.squeue.result;
 
+import com.senyint.squeue.util.ResultUtils;
+
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author hpym365@gmail.com
@@ -20,12 +23,14 @@ public class Result implements Serializable {
     public static Result succResult() {
         Result result = new Result();
         result.resCode = ResultCode.RESULT_CODE_SUCC;
+        result.resMsg = ResultCode.RESULT_MSG_SUCC;
         return result;
     }
 
     public static Result failResult() {
         Result result = new Result();
         result.resCode = ResultCode.RESULT_CODE_FAIL;
+        result.resMsg = ResultCode.RESULT_MSG_FAIL;
         return result;
     }
 
@@ -50,6 +55,11 @@ public class Result implements Serializable {
     }
 
     public void setData(Object data) {
+        if(data==null || (data instanceof List && ((List) data).size()==0)){
+            this.resCode=ResultCode.RESULT_CODE_NODATA;
+            this.resMsg=ResultCode.RESULT_MSG_NODATA;
+        }
+        ResultUtils.keyUnderToCamel(data);
         this.data = data;
     }
 

@@ -1,5 +1,8 @@
 package com.senyint.squeue.exception;
 
+import com.senyint.squeue.result.Result;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,25 +18,15 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 @ResponseBody
 public class GlobalExceptionHandler {
-    //添加全局异常处理流程，根据需要设置需要处理的异常，本文以MethodArgumentNotValidException为例
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     @ExceptionHandler(value = Throwable.class)
-    public Object MethodArgumentNotValidHandler(HttpServletRequest request,
+    public Result MethodArgumentNotValidHandler(HttpServletRequest request,
                                                 Throwable exception) throws Exception {
+        Result result = Result.failResult();
+        result.setResMsg(exception.getMessage());
         exception.printStackTrace();
         System.out.println("GlobalExceptionHandler");
-        return "123";
-//        //按需重新封装需要返回的错误信息
-//        List<ArgumentInvalidResult> invalidArguments = new ArrayList<>();
-//        //解析原错误信息，封装后返回，此处返回非法的字段名称，原始值，错误信息
-//        for (FieldError error : exception.getBindingResult().getFieldErrors()) {
-//            ArgumentInvalidResult invalidArgument = new ArgumentInvalidResult();
-//            invalidArgument.setDefaultMessage(error.getDefaultMessage());
-//            invalidArgument.setField(error.getField());
-//            invalidArgument.setRejectedValue(error.getRejectedValue());
-//            invalidArguments.add(invalidArgument);
-//        }
-//
-//        ResultMsg resultMsg = new ResultMsg(ResultStatusCode.PARAMETER_ERROR.getErrcode(), ResultStatusCode.PARAMETER_ERROR.getErrmsg(), invalidArguments);
-//        return resultMsg;
+        return result;
     }
 }
