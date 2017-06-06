@@ -23,5 +23,5 @@ queue:
         listener: receive
 #      - exchange: ga
 #        type: direct
-#        queue: queue2
+#        squeue: queue2
 #        routingkey: key1

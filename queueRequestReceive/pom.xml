@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>queue</artifactId>
-        <groupId>com.senyint.queue</groupId>
+        <groupId>com.senyint.squeue</groupId>
         <version>1.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -28,9 +28,15 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.senyint.queue</groupId>
+            <groupId>com.senyint.squeue</groupId>
             <artifactId>queueAutoconfig</artifactId>
             <version>1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -39,7 +45,7 @@
 
         <!--<repository>-->
             <!--<id>my-local-repo</id>-->
-            <!--<url>/home/hp/.m2/repository/com/senyint/queue/queueDataAccess/1.1</url>-->
+            <!--<url>/home/hp/.m2/repository/com/senysqueueueue/queueDataAccess/1.1</url>-->
         <!--</repository>-->
     <!--</repositories>-->
     <build>
@@ -54,7 +60,7 @@
                 <!--<targetPath>lib/</targetPath>-->
                 <!--<directory>lib/</directory>-->
                 <!--<includes>-->
-                    <!--<include>/home/hp/.m2/repository/com/senyint/queue/queueDataAccess/1.1/queueDataAccess-1.1.jar</include>-->
+                    <!--<include>/home/hp/.m2/repository/com/senysqueueueue/queueDataAccess/1.1/queueDataAccess-1.1.jar</include>-->
                 <!--</includes>-->
             <!--</resource>-->
         <!--</resources>-->

@@ -1,7 +1,7 @@
 //package com.senyint.queue.mongodb.demo;
 //
 //import com.mongodb.WriteResult;
-//import com.senyint.queue.mongodb.utils.MongoDbTools;
+//import com.senyint.squeue.mongodb.utils.MongoDbTools;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.mongodb.core.MongoTemplate;
 //import org.springframework.web.bind.annotation.RequestMapping;

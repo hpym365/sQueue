@@ -1,4 +1,4 @@
-package com.senyint.queue.rabbitmq.utils;
+package com.senyint.squeue.rabbitmq.utils;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;

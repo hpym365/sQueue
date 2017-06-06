@@ -1,7 +1,6 @@
-package com.senyint.queue.ctrl;
+package com.senyint.squeue.demo.ctrl;
 
-import com.senyint.queue.rabbitmq.utils.RabbitMQDAO;
-import org.apache.http.HttpRequest;
+import com.senyint.squeue.rabbitmq.utils.RabbitMQDAO;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;

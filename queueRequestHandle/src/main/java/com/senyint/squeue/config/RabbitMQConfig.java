@@ -1,6 +1,6 @@
 //package com.senyint.queue.config;
 //
-//import com.senyint.queue.consumer.Receive;
+//import com.senyint.squeue.consumer.Receive;
 //import org.springframework.amqp.core.*;
 //import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 //import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -29,13 +29,13 @@
 ////    }
 ////
 ////    @Bean
-////    public Queue queue() {
+////    public Queue squeue() {
 ////        return new Queue("recive_queue", true); //队列持久
 ////    }
 ////
 ////    @Bean
 ////    public Binding binding() {
-////        return BindingBuilder.bind(queue()).to(defaultExchange()).with(RabbitMQConfig.ROUTING_KEY);
+////        return BindingBuilder.bind(squeue()).to(defaultExchange()).with(RabbitMQConfig.ROUTING_KEY);
 ////    }
 //
 //
@@ -84,7 +84,7 @@
 ////        beanFactory.registerBeanDefinition("q1", q1.getBeanDefinition());
 //
 //        //反射  每次生成新的
-//        Class c = Class.forName("com.senyint.queue.consumer.Receive");
+//        Class c = Class.forName("com.senyint.squeue.consumer.Receive");
 //        Object o = c.newInstance();
 //
 //        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.rootBeanDefinition(SimpleMessageListenerContainer.class);

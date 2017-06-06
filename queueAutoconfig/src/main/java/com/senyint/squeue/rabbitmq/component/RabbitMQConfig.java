@@ -1,16 +1,11 @@
-package com.senyint.queue.rabbitmq.component;
+package com.senyint.squeue.rabbitmq.component;
 
-import com.rabbitmq.client.Channel;
-import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -72,9 +67,9 @@ public class RabbitMQConfig {
             public void accept(Map<String, String> map) {
                 String exchangeName = map.get("exchange");
                 if (exchangeName == null)
-                    throw new IllegalArgumentException("yaml文件配置错误,queue.mq.binds配置不正确找不到exchange参数");
+                    throw new IllegalArgumentException("yaml文件配置错误,squeue.mq.binds配置不正确找不到exchange参数");
                 String type = map.get("type") == null ? "" : map.get("type");
-                String queueName = map.get("queue");
+                String queueName = map.get("squeue");
                 String routingKey = map.get("routingkey");
                 Queue queue = null;
                 if (queueName != null) {
@@ -139,10 +134,10 @@ public class RabbitMQConfig {
         consumer.forEach(new Consumer<Map<String, String>>() {
             @Override
             public void accept(Map<String, String> map) {
-                String queue = map.get("queue");
+                String queue = map.get("squeue");
                 String listener = map.get("listener");
                 if(queue==null || listener==null)
-                    throw new IllegalArgumentException("yaml文件配置错误,queue.mq.consumer配置不正确找不到queue或listener参数");
+                    throw new IllegalArgumentException("yaml文件配置错误,squeue.mq.consumer配置不正确找不到queue或listener参数");
 
                 Object messageListener = applicationContext.getBean("receive");
                 if (!(messageListener instanceof MessageListener) && !(messageListener instanceof ChannelAwareMessageListener)) {
@@ -211,7 +206,7 @@ public class RabbitMQConfig {
 //        if (cccc==null) {
 //
 //            // 反射  每次生成新的
-//            Class c = Class.forName("com.senyint.queue.consumer.Receive");
+//            Class c = Class.forName("com.senyint.squeue.consumer.Receive");
 //            Object o = c.newInstance();
 //            BeanDefinitionBuilder beanDefinitionBuilder =
 //                    BeanDefinitionBuilder.rootBeanDefinition(SimpleMessageListenerContainer.class);

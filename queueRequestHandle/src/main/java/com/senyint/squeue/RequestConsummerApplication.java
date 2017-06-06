@@ -1,10 +1,6 @@
-package com.senyint.queue;
+package com.senyint.squeue;
 
-import com.senyint.queue.consumer.Receive;
-import com.senyint.queue.rabbitmq.utils.RabbitMQDAO;
-import org.springframework.amqp.core.AcknowledgeMode;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
+import com.senyint.squeue.rabbitmq.utils.RabbitMQDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

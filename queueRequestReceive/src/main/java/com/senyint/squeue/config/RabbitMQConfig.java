@@ -47,7 +47,7 @@
 ////     * @return
 ////     */
 ////    @Bean
-////    public Queue queue() {
+////    public Queue squeue() {
 ////        return new Queue("recive_message", true); //队列持久
 ////    }
 //}

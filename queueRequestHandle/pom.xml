@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>queue</artifactId>
-        <groupId>com.senyint.queue</groupId>
+        <groupId>com.senyint.squeue</groupId>
         <version>1.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -15,14 +15,10 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.senyint.queue</groupId>
+            <groupId>com.senyint.squeue</groupId>
             <artifactId>queueAutoconfig</artifactId>
             <version>1.1</version>
         </dependency>

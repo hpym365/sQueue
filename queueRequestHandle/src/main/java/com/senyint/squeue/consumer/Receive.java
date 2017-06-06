@@ -1,4 +1,4 @@
-package com.senyint.queue.consumer;
+package com.senyint.squeue.consumer;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
