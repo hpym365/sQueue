@@ -1,4 +1,4 @@
-package com.senyint.squeue.Rest;
+package com.senyint.squeue.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
