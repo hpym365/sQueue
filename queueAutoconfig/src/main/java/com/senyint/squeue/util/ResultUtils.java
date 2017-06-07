@@ -1,5 +1,6 @@
 package com.senyint.squeue.util;
 
+import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.senyint.squeue.result.Result;
@@ -9,10 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author hpym365@gmail.com
@@ -34,28 +32,34 @@ public class ResultUtils {
      */
     public static Result getResult(String json) throws IOException {
 
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(json, new TypeReference<Result>() {
-        });
+//        Result jsonMap = (Map) com.alibaba.fastjson.JSONObject.parse(json,Result.class);
+        Result result = JSON.parseObject(json, Result.class);
+//        System.out.println("jsonMap:"+jsonMap);
+        return result;
 
     }
 
 
-    public static void queryCollectionChangeKeyUnderToCamel(Object object) {
+    public static Object queryCollectionChangeKeyUnderToCamel(Object object) {
         if (object instanceof Map) {
-            mapKeyUnderToCamel((Map) object);
+            return mapKeyUnderToCamel((Map) object);
         }
         if (object instanceof List) {
             List list = (List) object;
+            List resList = new ArrayList();
             for (Object o : list) {
                 if (o instanceof Map) {
-                    mapKeyUnderToCamel((Map) o);
+                    resList.add(mapKeyUnderToCamel((Map) o));
+                } else {
+                    resList.add(o);
                 }
+                return resList;
             }
         }
+        return object;
     }
 
-    private static void mapKeyUnderToCamel(Map map) {
+    private static Map mapKeyUnderToCamel(Map map) {
 
         Map resultMap = new HashMap();
         for (Object key : map.keySet()) {
@@ -68,6 +72,6 @@ public class ResultUtils {
             }
 
         }
-        map = resultMap;
+        return resultMap;
     }
 }

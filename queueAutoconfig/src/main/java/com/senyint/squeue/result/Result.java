@@ -59,8 +59,8 @@ public class Result implements Serializable {
             this.resCode = ResultCode.RESULT_CODE_NODATA;
             this.resMsg = ResultCode.RESULT_MSG_NODATA;
         }
-        ResultUtils.queryCollectionChangeKeyUnderToCamel(data);
-        this.data = data;
+        this.data = ResultUtils.queryCollectionChangeKeyUnderToCamel(data);
+//        this.data = data;
     }
 
     @Override

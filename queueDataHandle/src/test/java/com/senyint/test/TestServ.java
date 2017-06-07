@@ -72,15 +72,4 @@ public class TestServ {
 //        rest.getForObject("http://localhost:8888/receive/" + token,Map.class);
     }
 
-
-    @Test
-    public void findQueueByQueueNum() throws IOException {
-        String queueNum = "1";
-        Map param = new HashMap();
-        param.put("queueNum",queueNum);
-        String res = rest.postForObject("http://localhost:9090/data/findQueueByToken", param, String.class);
-        System.out.println(res);
-        Result result = ResultUtils.getResult(res);
-        System.out.println(result.toString());
-    }
 }

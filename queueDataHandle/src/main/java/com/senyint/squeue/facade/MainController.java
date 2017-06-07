@@ -41,6 +41,7 @@ public class MainController {
         List queueByToken = queueService.findQueue(param);
         Result result = Result.succResult();
         result.setData(queueByToken);
+        logger.info(result.toString());
         return result;
     }
 
